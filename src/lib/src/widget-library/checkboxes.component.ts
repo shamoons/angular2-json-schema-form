@@ -88,7 +88,10 @@ export class CheckboxesComponent extends Widget implements OnInit {
       }
     }
     if (this.boundControl) {
-      this.jsf.updateArrayCheckboxList(this, this.checkboxList);
+      this.jsf.updateValue(this, this.checkboxList
+        .filter(checkboxItem => checkboxItem.checked)
+        .map(checkboxItem => checkboxItem.value)
+      );
     }
   }
 }
